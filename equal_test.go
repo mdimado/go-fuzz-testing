@@ -7,3 +7,9 @@ func TestEqual(t *testing.T) {
 		t.Error("expected True got False")
 	}
 }
+
+func FuzzEqual(f *testing.F) {
+	f.Fuzz(func(t *testing.T, a []byte, b []byte) {
+		Equal(a, b)
+	})
+}
